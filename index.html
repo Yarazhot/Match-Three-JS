@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JS Game</title>
+        <link rel="stylesheet" href="assets/css/style.css">
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <header>
+        <nav>
+            <a id="start-game-btn" class="link" href="#">start game</a>
+            <div id="nav-mobile" class="right_links">
+                <a id="logout-btn" href="#" class="link_right logged-in">Logout</a>
+                <a id="account-btn" href="#" class="link_right logged-in">Account</a>
+                <a id="login-btn" href="#" class="link_right logged-out">Login</a>
+                <a id="signup-btn" href="#" class="link_right logged-out">Sign up</a>
+                </li>
+                </span>
+            </div>
+        </nav>
+        </header>
+        <section class="main_section1">
+            <div class="UIs">
+                <h1 style=" margin-right: 5px;">SCORE: </h1>
+                <p><span id="score" class="score" style="margin-right: 70px;">0</span></p>
+                <h1 style=" margin-right: 5px;">TIME: </h1>
+                <p><span id="timer" class="timer" style=" margin-right: 5px;">00:00</span></p>
+                <span id="cross" class="close">&times;</span>
+            </div>
+            <div class="canvas_wrap">
+                <canvas width="500px" height="500px" class="canvas" id="canvas">
+                    Ваш браузер не поддерживает JavaScript и HTML5!
+                </canvas>
+            </div>
+            <div class="table-wrap">
+                <table id="score-table">
+                    <tr><th>_№_</th><th>Username</th><th>High score</th></tr>
+                </table>
+            </div>
+        </section>
+
+          <!-- SIGN UP MODAL -->
+        <div id="modal-signup" class="modal">
+            <div class="modal-content">
+                <h4>Sign up</h4><br />
+                <form id="signup-form">
+                    <div class="input-field">
+                        <input type=email id="signup-email" placeholder="Email Addres">
+                    </div>
+                    <div class="input-field">
+                        <input type=password id="signup-password" placeholder="Password">
+                    </div>
+                    <button class="btn yellow darken-2 z-depth-0">Sign up</button>
+                    <p class="error"></p>
+                </form>
+            </div>
+        </div>
+
+        <!-- LOGIN MODAL -->
+        <div id="modal-login" class="modal">
+        <div class="modal-content">
+          <h4>Login</h4><br />
+          <form id="login-form">
+            <div class="input-field">
+                <input type=email id="login-email" placeholder="Email Addres">
+            </div>
+            <div class="input-field">
+               <input type=password id="login-password" placeholder="Password">
+            </div>
+                <button class="btn yellow darken-2 z-depth-0">Login</button>
+                <p class="error"></p>
+            </form>
+        </div>
+        </div>
+
+        <!-- ACCOUNT MODAL -->
+        <div id="modal-account" class="modal">
+            <div class="modal-content center-align">
+                <h4>Account details</h4><br />
+                <div class="account-details"></div>
+                <h4>Change user name:</h4>
+                <form id="change-username">
+                    <div class="input-field">
+                        <input id="new-username" placeholder="New username">
+                    </div>
+                    <button class="btn yellow darken-2 z-depth-0">Change</button>
+                    <p class="error"></p>
+                </form>
+            </div>
+        </div>
+
+        <!-- SCRIPTS -->
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
+
+        <script>
+          // Your web app's Firebase configuration
+          // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+          var firebaseConfig = {
+            apiKey: "AIzaSyCwjDFKSeOX62L1Ri1TXwvfGag-kJFo7F0",
+            authDomain: "mathc-three-js.firebaseapp.com",
+            projectId: "mathc-three-js",
+            storageBucket: "mathc-three-js.appspot.com",
+            messagingSenderId: "291696565001",
+            appId: "1:291696565001:web:391342d24a71ced5f3d1d8",
+            measurementId: "G-TD63HX5S6V"
+          };
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+          firebase.analytics();
+          const auth = firebase.auth();
+          const db = firebase.firestore();
+          db.settings({ timestampsInSnapshots: true })
+        </script>
+
+        <script src="assets/js/index.js"></script>
+        <script src="assets/js/auth.js"></script>
+        <script src="assets/js/logicScript.js"></script>
+    </body>
+</html>
